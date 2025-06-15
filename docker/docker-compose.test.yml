@@ -1,0 +1,12 @@
+version: 3.7
+services:
+  api:
+    image: on-service-api:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: test
+    volumes:
+      - ./on_service:/app
+    ports:
+      - 9090:9090

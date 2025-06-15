@@ -1,0 +1,11 @@
+services:
+  api:
+    image: on-service-api:latest
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: dev
+    volumes:
+      - ./app:/app
+    ports:
+      - 9090:9090
