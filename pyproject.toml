@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "on-service"
+version = "0.1.0"
+description = ""
+authors = ["Fabio Nazzi <fabionnazzi@gmail.com>"]
+packages = [{ include = "on_service", from = "app/src" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "~2.11.7"
+pydantic-settings = "~2.9.1"
+httpx = "~0.28.1"
+fastapi = "~0.115.12"
+uvicorn = "^0.34.3"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^9.3.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "~8.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
