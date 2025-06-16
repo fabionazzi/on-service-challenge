@@ -1,3 +1,4 @@
+# ==================== DEV ===================
 FROM python:3.12-slim AS dev
 
 RUN pip3 install poetry==2.1.3
@@ -9,7 +10,7 @@ COPY ./app/ /app/
 
 RUN poetry install --without test
 
-CMD ["uvicorn", "src.on_service.main:app"]
+CMD ["poetry", "run", "uvicorn", "src.on_service.main:app", "--reload", "--host", "0.0.0.0", "--port", "9090"]
 
 # =================== TEST ===================
 FROM dev AS test

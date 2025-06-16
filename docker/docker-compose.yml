@@ -6,6 +6,8 @@ services:
       dockerfile: docker/Dockerfile
       target: dev
     volumes:
-      - ./app:/app
+      - ../app:/app
+      - ../configuration:/configuration
+    tty: True
     ports:
       - 9090:9090
