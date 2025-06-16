@@ -24,7 +24,7 @@ class APIDogFlightEventsProvider(FlightEventsProvider):
         self._url = url
 
     def get_events(self) -> List[FlightEvent]:
-        response = self._client.get(self._url)
+        response = self._client.get(str(self._url))
         response.raise_for_status()
         flight_events = event_list_adapter.validate_python(response.json())
         model_events = [FlightEvent(**event.model_dump()) for event in flight_events]
