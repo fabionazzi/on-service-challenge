@@ -11,7 +11,7 @@ class NonExistentFilter(Exception):
 
 
 JOURNEY_FILTER_REGISTRY = {
-    "max_connections_number": MaxConnectionFilter,
+    "max_connections_filter": MaxConnectionFilter,
     "max_duration_filter": MaxDurationFilter,
     "max_stopover_filter": MaxStopoverFilter,
 }
