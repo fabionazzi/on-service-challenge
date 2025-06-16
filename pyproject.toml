@@ -20,6 +20,7 @@ ipython = "^9.3.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "~8.4.0"
+pytest-cov = "^6.2.1"
 
 [build-system]
 requires = ["poetry-core"]
