@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, HttpUrl, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -18,7 +18,7 @@ class Configuration(BaseSettings):
     external_api_url: HttpUrl = (
         "https://mock.apidog.com/m1/814105-793312-default/flight-events"
     )
-    filter_config: List[FilterConfiguration]
+    filter_config: List[FilterConfiguration] = Field(default_factory=list)
 
 
 config = Configuration()
