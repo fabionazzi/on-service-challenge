@@ -24,9 +24,17 @@ class PathFinder:
             return result
 
         def get_next_steps(
-            events: List[FlightEvent], next_city: str
+            events: List[FlightEvent], origin: FlightEvent
         ) -> List[FlightEvent]:
-            next_steps = list(filter(lambda x: x.departure_city == next_city, events))
+            next_city = origin.arrival_city
+            arrival_time = origin.arrival_datetime
+            next_steps = list(
+                filter(
+                    lambda x: x.departure_city == next_city
+                    and x.departure_datetime > arrival_time,
+                    events,
+                )
+            )
             return next_steps
 
         def create_connections(
@@ -44,7 +52,7 @@ class PathFinder:
             elif len(next_steps) > 0:
                 path.append(origin)
                 for step in next_steps:
-                    next_steps = get_next_steps(events, step.arrival_city)
+                    next_steps = get_next_steps(events, step)
                     visited = [event.departure_city for event in path]
                     next_steps = remove_visited(next_steps, visited)
                     subpath = path.copy()
@@ -64,7 +72,7 @@ class PathFinder:
 
         paths = []
         for origin in departure_events:
-            next_steps = get_next_steps(events, origin.arrival_city)
+            next_steps = get_next_steps(events, origin)
             create_connections(origin, to_city, events, next_steps, paths)
 
         return paths
