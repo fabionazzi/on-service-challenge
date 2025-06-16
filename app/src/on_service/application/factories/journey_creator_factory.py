@@ -1,7 +1,7 @@
 from on_service.infrastructure.api_client import APIClientFactory
 from on_service.infrastructure.external_services import APIDogFlightEventsProvider
 from on_service.application.use_cases import JourneyCreatorUseCase
-from on_service.domain.services import FlightEventsProvider, PathFinder
+from on_service.domain.services import PathFinder
 from on_service.domain.filter import JourneyFilterFactory
 
 
