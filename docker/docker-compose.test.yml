@@ -8,4 +8,4 @@ services:
     volumes:
       - ../app:/app
     tty: True
-    command: ["poetry", "run","pytest", "-v", "/app/test/"]
+    command: ["poetry", "run","pytest", "-v", "/app/test/", "--cov", "/app/src", "--cov-report", "term-missing"]
