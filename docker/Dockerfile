@@ -16,4 +16,4 @@ CMD ["poetry", "run", "uvicorn", "src.on_service.main:app", "--reload", "--host"
 FROM dev AS test
 
 RUN poetry install --only test
-CMD ["pytest", "/app/tests/"]
+CMD ["poetry", "run","pytest", "/app/test/"]
