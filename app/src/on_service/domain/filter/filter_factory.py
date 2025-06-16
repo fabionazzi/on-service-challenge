@@ -6,7 +6,7 @@ from on_service.domain.filter.journey_filter import (
 )
 
 
-class UnexistentFilter(Exception):
+class NonExistentFilter(Exception):
     """Raised when tries to create a non-existing filter"""
 
 
@@ -25,4 +25,4 @@ class JourneyFilterFactory:
             ctor = JOURNEY_FILTER_REGISTRY[name]
             return ctor(**kwargs)
         except KeyError as exc:
-            raise UnexistentFilter(f"Filter with name: {name} does not exist") from exc
+            raise NonExistentFilter(f"Filter with name: {name} does not exist") from exc
